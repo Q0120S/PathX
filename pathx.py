@@ -5,7 +5,6 @@ def append_string_to_path(url, string):
     parsed_url = urlparse(url)
     path_segments = parsed_url.path.split('/')
     result_urls = []
-    print(len(path_segments))
     for i in range(0, len(path_segments)+1):
         new_path = '/'.join(path_segments[:i]) + '/' + string + '/'.join(path_segments[i:])
         new_url = parsed_url.scheme + '://' + parsed_url.netloc + new_path       
