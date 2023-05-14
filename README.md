@@ -10,12 +10,32 @@ python3 pathx.py -h
 ```
 ## Usage
 ```bash
+python3 pathx.py -h
+```
+This will display help for the tool. Here are all the switches it supports.
+```console
+usage: pathx.py [-h] [-u URL] [-s STRING]
+
+Appending string in different ways to a URL path.
+
+options:
+  -h, --help            show this help message and exit
+  -u URL, --url URL     target URL or List to modify
+  -s STRING, --string STRING
+                        string to append to the URL path
+```
+## Running PathX
+```bash
 cat urls.txt | python3 pathx.py -s %22pathx
+```
+```bash
 echo https://google.com/api/XSS/services/test | python3 pathx.py -s %22pathx
+```
+```bash
 python3 pathx.py -u https://google.com/api/XSS/services/test -s %22pathx
 ```
 ### Output:
-```bash
+```console
 https://google.com/api%22pathx/XSS/services/test
 https://google.com/api/XSS%22pathx/services/test
 https://google.com/api/XSS/services%22pathx/test
