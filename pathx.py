@@ -19,7 +19,7 @@ def append_string_to_path(url, string):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Appending string in different ways to a URL path.')
     parser.add_argument('-u', '--url', type=str, help='target URL to modify')
-    parser.add_argument('-s', '--string', type=str, help='The string to append to the URL path')
+    parser.add_argument('-s', '--string', type=str, help='string to append to the URL path')
     args = parser.parse_args()
 
     if not args.url or not args.string:
