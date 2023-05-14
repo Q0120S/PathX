@@ -10,6 +10,8 @@ python3 pathx.py -h
 ```
 ## Usage
 ```bash
+cat urls.txt | python3 pathx.py -s %22pathx
+echo https://google.com/api/XSS/services/test | python3 pathx.py -s %22pathx
 python3 pathx.py -u https://google.com/api/XSS/services/test -s %22pathx
 ```
 ### Output:
