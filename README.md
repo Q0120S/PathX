@@ -8,6 +8,12 @@ git clone https://github.com/Q0120S/pathx.git
 cd pathx
 python3 pathx.py -h
 ```
+You can add this tool to your bashrc for ease of use:
+```bash
+pathx() {                  
+python3 /path/to/your/tool/pathx.py "$@"
+}
+```
 ## Usage
 ```bash
 python3 pathx.py -h
