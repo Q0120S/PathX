@@ -18,12 +18,15 @@ python3 /path/to/your/tool/pathx.py "$@"
 ```bash
 python3 pathx.py -h
 ```
-usage: pathx.py [-h] [-l LIST] [-s STRING]
+This will display help for the tool. Here are all the switches it supports.
+```console
+usage: newpathx.py [-h] [-u URL] [-l LIST] [-s STRING]
 
 Appending string in different ways to a URL path.
 
-optional arguments:
+options:
   -h, --help            show this help message and exit
+  -u URL, --url URL     single target URL.
   -l LIST, --list LIST  target URL file.
   -s STRING, --string STRING
                         string to append to the URL path.
@@ -36,18 +39,21 @@ cat urls.txt | python3 pathx.py -s %22pathx
 echo https://google.com/api/XSS/services/test | python3 pathx.py -s %22pathx
 ```
 ```bash
-python3 pathx.py -l INPUT_FILE -s %22pathx
+python3 pathx.py -l urls.txt -s %22pathx
+```
+```bash
+python3 pathx.py -u https://google.com/api/XSS/services/test -s %22pathx
 ```
 ### Output:
 ```console
+https://google.com/api/XSS/services%22pathx/test/
 https://google.com/api%22pathx/XSS/services/test/
 https://google.com/api/XSS/services/test/%22pathx
-https://google.com/api/XSS/services/%22pathx/test/
-https://google.com/api/XSS/services%22pathx/test/
-https://google.com/api/XSS%22pathx/services/test/
-https://google.com/api/XSS/%22pathx/services/test/
-https://google.com/api/XSS/services/test/%22pathx/
 https://google.com/api/XSS/services/test%22pathx/
-https://google.com/api/%22pathx/XSS/services/test/
 https://google.com/%22pathx/api/XSS/services/test/
+https://google.com/api/XSS/%22pathx/services/test/
+https://google.com/api/XSS/services/%22pathx/test/
+https://google.com/api/XSS%22pathx/services/test/
+https://google.com/api/XSS/services/test/%22pathx/
+https://google.com/api/%22pathx/XSS/services/test/
 ```
