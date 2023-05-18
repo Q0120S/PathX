@@ -20,7 +20,7 @@ python3 pathx.py -h
 ```
 This will display help for the tool. Here are all the switches it supports.
 ```console
-usage: newpathx.py [-h] [-u URL] [-l LIST] [-s STRING]
+usage: pathx.py [-h] [-u URL] [-l LIST] [-s STRING] [-ne]
 
 Appending string in different ways to a URL path.
 
@@ -30,6 +30,8 @@ options:
   -l LIST, --list LIST  target URL file.
   -s STRING, --string STRING
                         string to append to the URL path.
+  -ne, --no-ending-slash
+                        omit ending slash from URLs
 ```
 ## Running PathX
 ```bash
@@ -56,4 +58,19 @@ https://google.com/api/XSS/services/%22pathx/test/
 https://google.com/api/XSS%22pathx/services/test/
 https://google.com/api/XSS/services/test/%22pathx/
 https://google.com/api/%22pathx/XSS/services/test/
+```
+```bash
+python3 pathx.py -u https://google.com/api/XSS/services/test -s %22pathx -ne
+```
+### Output:
+```console
+https://google.com/api/%22pathx/XSS/services/test
+https://google.com/api%22pathx/XSS/services/test
+https://google.com/api/XSS/services/test/%22pathx
+https://google.com/api/XSS/%22pathx/services/test
+https://google.com/api/XSS/services%22pathx/test
+https://google.com/api/XSS/services/%22pathx/test
+https://google.com/api/XSS/services/test%22pathx
+https://google.com/api/XSS%22pathx/services/test
+https://google.com/%22pathx/api/XSS/services/test
 ```
