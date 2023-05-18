@@ -59,6 +59,8 @@ https://google.com/api/XSS%22pathx/services/test/
 https://google.com/api/XSS/services/test/%22pathx/
 https://google.com/api/%22pathx/XSS/services/test/
 ```
+
+
 ```bash
 python3 pathx.py -u https://google.com/api/XSS/services/test -s %22pathx -ne
 ```
