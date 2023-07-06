@@ -4,7 +4,7 @@ import sys
 
 def append_string_to_path(url, string, no_ending_slash=False):
     parsed_url = urlparse(url)
-    if parsed_url.path[-1] != '/':
+    if parsed_url.path != '/':
         path = parsed_url.path + '/'    
     else:
         path = parsed_url.path
